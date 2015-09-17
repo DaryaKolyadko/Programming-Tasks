@@ -1,7 +1,6 @@
 # Programming-Tasks
 Спецкурс
 
-![alt tag](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCOiBrr6b_8cCFSrxcgod3MoNbQ&url=http%3A%2F%2Fcodecondo.com%2Fcoding-challenges%2F&psig=AFQjCNE7T4fJFqSSoJ2zspvhmEVJiXhRLw&ust=1442618652351834)
 
 Сайт Programming Tasks предназначен для публикации задач по программированию.
 Пользователи имеют возможность зарегистрироваться на сайте, а затем, пройдя этап, аутентификации, добавлять/редактировать/удалять свои задачи и решать задачи, опубликованные другими пользователями.
