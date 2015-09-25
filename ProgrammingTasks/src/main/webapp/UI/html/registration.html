@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/register.css" media="screen" type="text/css" />
+</head>
+<body>
+    <div id="login-form">
+        <h1>Регистрация</h1>
+
+        <fieldset>
+            <form action="javascript:void(0);" method="get">
+                <input type="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'" onFocus="if(this.value=='Логин')this.value='' ">
+                Пароль <input type="password" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
+                Подтвердите пароль <input type="password" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
+                <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>
