@@ -30,5 +30,5 @@
 
 Сайт локализован. Поддерживаются русский и английский языки [переводится только интерфейс].
 
-Предварительные css и html файлы можно увидеть в каталогах [1](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/css) и [2](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp) соответственно.
-Примерный вид сайта, который должен получиться в итоге, можно посмотреть [здесь](https://www.dropbox.com/sh/30z6heskw53g96r/AAAo0RgAM-p4-hfSZTQHI7BLa?dl=0).
+Предварительные css и html файлы можно увидеть в каталогах [1](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/css) и [2](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/html) соответственно.
+Примерный вид сайта, который должен получиться в итоге, можно посмотреть [здесь](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/desiredresult).
