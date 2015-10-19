@@ -24,6 +24,16 @@
         <artifactId>jquery-maven</artifactId>
         <version>1.7.2</version>
     </dependency>
+      <dependency>
+          <groupId>org.springframework.integration</groupId>
+          <artifactId>spring-integration-core</artifactId>
+          <version>2.2.3.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.integration</groupId>
+          <artifactId>spring-integration-security</artifactId>
+          <version>2.2.3.RELEASE</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>ProgrammingTasks</finalName>
