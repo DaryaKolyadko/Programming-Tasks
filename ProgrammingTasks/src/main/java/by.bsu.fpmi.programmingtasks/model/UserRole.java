@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "USER_ROLE",uniqueConstraints = @UniqueConstraint(columnNames = {"ROLE", "USER_NAME"}))
-public class User_Role implements Serializable
+public class UserRole implements Serializable
 {
     static final long serialVersionID = 1L;
     @Id
