@@ -1,6 +1,8 @@
 package by.bsu.fpmi.programmingtasks.services.impl;
 
+import by.bsu.fpmi.programmingtasks.dao.intrfc.UserDao;
 import by.bsu.fpmi.programmingtasks.model.AppUser;
+import by.bsu.fpmi.programmingtasks.model.User;
 import by.bsu.fpmi.programmingtasks.services.intrfc.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ public class UserServiceImpl implements UserService
     private UserDao userDao;
 
     @Override
-    public AppUser readUserByUsername(String username) {
+    public User readUserByUsername(String username) {
         return userDao.getByUsername(username);
     }
 }
