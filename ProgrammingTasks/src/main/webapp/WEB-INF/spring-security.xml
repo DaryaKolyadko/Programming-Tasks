@@ -1,0 +1,42 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+             http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+        <beans:property name="rolePrefix" value=""/>
+    </beans:bean>
+    <beans:bean id="authenticationSuccessHandler" class="by.bsu.fpmi.kolyadkodarya.utils.handlers.CustomAuthenticationSuccessHandler"/>
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+
+    <http auto-config='true' use-expressions="true">
+        <form-login
+                login-page="/worldquizapp"
+                default-target-url="/"
+                authentication-failure-url="/worldquizapp?error"
+                password-parameter="password"
+                username-parameter="username"
+                authentication-success-handler-ref="authenticationSuccessHandler" />
+
+        <logout logout-success-url="/worldquizapp?logout" delete-cookies="JSESSIONID"/>
+
+        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/start/**" access="isAuthenticated()"/>
+
+        <session-management>
+            <concurrency-control max-sessions="100" session-registry-alias="sessionRegistry"/>
+        </session-management>
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+    <authentication-provider user-service-ref="userDetailsService">
+        <password-encoder hash="sha-256">
+            <salt-source user-property="username"/>
+        </password-encoder>
+    </authentication-provider>
+</authentication-manager>
+
+</beans:beans>
