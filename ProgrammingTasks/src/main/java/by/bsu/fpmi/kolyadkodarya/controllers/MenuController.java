@@ -35,4 +35,14 @@ public class MenuController
     public ModelAndView userInfo(){
         return new ModelAndView("../WEB-INF/pages/userInfo");
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(){
+        return new ModelAndView("../WEB-INF/pages/login");
+    }
+
+    @RequestMapping(value = "/sign_up", method = RequestMethod.GET)
+    public ModelAndView register(){
+        return new ModelAndView("../WEB-INF/pages/signUp");
+    }
 }

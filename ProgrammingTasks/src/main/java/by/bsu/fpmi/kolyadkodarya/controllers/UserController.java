@@ -30,44 +30,4 @@ public class UserController {
 
     @Autowired
     private UserRoleService roleService;
-
-    @RequestMapping("/show_users")
-    public ModelAndView userList(Map<String, Object> map, Principal principal, User user) {
-
-        map.put("user", new User());
-        map.put("userList", userService.listUsers());
-        map.put("roleList", roleService.listRoles());
-
-        if(principal != null){
-            String name = principal.getName();
-            map.put("username", name);
-        }
-
-
-        return new ModelAndView("../WEB-INF/pages/users/show_users");
-    }
-
-    @RequestMapping("/add_user")
-    public ModelAndView addUser(Map<String, Object> map) {
-
-        map.put("user", new User());
-        map.put("roleList", roleService.listRoles());
-
-        return new ModelAndView("../WEB-INF/pages/users/user_form");
-    }
-
-    @RequestMapping(value = "/save_user", method = RequestMethod.POST)
-    public ModelAndView saveUser(@Valid @ModelAttribute("user") User user, BindingResult result, Map<String, Object> map) {
-        if (result.hasErrors()) {
-
-            map.put("user", user);
-            map.put("roleList", roleService.listRoles());
-
-            return new ModelAndView("../WEB-INF/pages/users/user_form");
-
-        } else {
-            userService.save(user);
-            return new ModelAndView("redirect:/show_users");
-        }
-    }
 }

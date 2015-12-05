@@ -24,9 +24,6 @@ public class User implements Serializable{
     @Column(name = "ENABLED", nullable = false)
     private boolean enabled;
 
-    @Transient
-    private String matchingPassword;
-
     @Column(name = "FIRSTNAME", nullable = false)
     private String firstname;
 
@@ -35,14 +32,6 @@ public class User implements Serializable{
 
     public User() {
         this.enabled = true;
-    }
-
-    public String getMatchingPassword() {
-        return matchingPassword;
-    }
-
-    public void setMatchingPassword(String matchingPassword) {
-        this.matchingPassword = matchingPassword;
     }
 
     public String getUsername() {

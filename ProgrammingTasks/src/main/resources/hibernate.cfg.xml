@@ -6,6 +6,5 @@
     <session-factory>
         <mapping class="by.bsu.fpmi.kolyadkodarya.model.User"/>
         <mapping class="by.bsu.fpmi.kolyadkodarya.model.UserRole"/>
-        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Question"/>
     </session-factory>
 </hibernate-configuration>

@@ -14,14 +14,14 @@
 
     <http auto-config='true' use-expressions="true">
         <form-login
-                login-page="/worldquizapp"
+                login-page="/login"
                 default-target-url="/"
-                authentication-failure-url="/worldquizapp?error"
+                authentication-failure-url="/programmingtasks?error"
                 password-parameter="password"
                 username-parameter="username"
                 authentication-success-handler-ref="authenticationSuccessHandler" />
 
-        <logout logout-success-url="/worldquizapp?logout" delete-cookies="JSESSIONID"/>
+        <logout logout-success-url="/programmingtasks?logout" delete-cookies="JSESSIONID"/>
 
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
         <intercept-url pattern="/start/**" access="isAuthenticated()"/>
