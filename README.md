@@ -1,7 +1,7 @@
 # Programming-Tasks
 ##Спецкурс
 
-![ScreenShot](http://codecondo.com/wp-content/uploads/2014/04/5-Coding-Challenges-to-Help-You-Train-Your-Brain.jpg)
+![ScreenShot](http://www.firecracker-uk.co.uk/wp-content/uploads/2012/07/Brain-in-cogs.jpg)
 Сайт **Programming Tasks** предназначен для публикации задач по программированию.
 Пользователи имеют возможность зарегистрироваться на сайте, а затем, пройдя этап аутентификации, добавлять/редактировать/удалять свои задачи и решать задачи, опубликованные другими пользователями.
 
@@ -30,5 +30,4 @@
 
 Сайт локализован. Поддерживаются русский и английский языки [переводится только интерфейс].
 
-Предварительные css и html файлы можно увидеть в каталогах [1](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/css) и [2](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/html) соответственно.
-Примерный вид сайта, который должен получиться в итоге, можно посмотреть [здесь](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/UI/desiredresult).
+Предварительные css и html файлы можно увидеть в каталогах [1](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/resources/css) и [2](https://github.com/DaryaKolyadko/Programming-Tasks/tree/master/ProgrammingTasks/src/main/webapp/resources/html) соответственно.
