@@ -31,7 +31,6 @@ public class UserDaoImpl implements UserDao {
         } else {
             return null;
         }
-
     }
     @Override
     public void update(User user) {

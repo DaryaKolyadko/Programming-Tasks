@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
             throw new NullPointerException("Account with that username: " + accountDto.getUsername() + " already exists!");
         }
         final User user = new User();
+        user.setStatus(accountDto.getStatus());
         user.setUsername(accountDto.getUsername());
         user.setPassword(new CustomPasswordEncoder("sha-256").encodePassword(accountDto.getPassword(), accountDto.getUsername()));
         user.setEnabled(true);

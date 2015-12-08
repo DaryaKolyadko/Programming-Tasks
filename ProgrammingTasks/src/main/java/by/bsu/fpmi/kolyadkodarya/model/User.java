@@ -30,9 +30,19 @@ public class User implements Serializable{
     @Column(name = "LASTNAME", nullable = false)
     private String lastname;
 
-    public User() {
-        this.enabled = true;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STATUS_ID", nullable = false)
+    private Status status;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userCreator")
+    private Set<Task> tasks = new HashSet<Task>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "SOLVE_USER_TASK", joinColumns = {
+            @JoinColumn(name = "USER_ID", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "TASK_ID",
+                    nullable = false)})
+    private Set<Task> solvedTasks = new HashSet<Task>();
 
     public String getUsername() {
         return username;
@@ -80,5 +90,15 @@ public class User implements Serializable{
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Status getStatus()
+    {
+        return status;
+    }
+
+    public void setStatus(Status status)
+    {
+        this.status = status;
     }
 }

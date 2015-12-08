@@ -58,6 +58,8 @@ public class LoginController
     @RequestMapping(value = "/trySignUp", method = RequestMethod.GET)
     public ModelAndView registerUser(@ModelAttribute("user") User accountDto, BindingResult result,  Errors errors, HttpServletRequest request){
         User registered = new User();
+        registered.setStatus(accountDto.getStatus());
+
         if (!result.hasErrors()) {
             registered = createUserAccount(accountDto, result);
         }

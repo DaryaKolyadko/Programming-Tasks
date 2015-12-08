@@ -6,5 +6,11 @@
     <session-factory>
         <mapping class="by.bsu.fpmi.kolyadkodarya.model.User"/>
         <mapping class="by.bsu.fpmi.kolyadkodarya.model.UserRole"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Status"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Task"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Tag"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Comment"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.Category"/>
+        <mapping class="by.bsu.fpmi.kolyadkodarya.model.ComplexityLevel"/>
     </session-factory>
 </hibernate-configuration>
