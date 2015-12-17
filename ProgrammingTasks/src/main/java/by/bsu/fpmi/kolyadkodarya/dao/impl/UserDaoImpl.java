@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User save(User user) {
-        user.setPassword(new CustomPasswordEncoder("sha-256").encodePassword(user.getUsername(), user.getPassword()));
+        //user.setPassword();//new CustomPasswordEncoder("sha-256").encodePassword(user.getPassword(), user.getUsername()));
         Set<UserRole> userRoleSet = user.getUserRolesSet();
         userRoleSet.add(new UserRole(user, "USER"));
         user.setUserRolesSet(userRoleSet);

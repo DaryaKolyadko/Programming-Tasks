@@ -1,7 +1,10 @@
 package by.bsu.fpmi.kolyadkodarya.controllers;
 
+import by.bsu.fpmi.kolyadkodarya.model.Status;
 import by.bsu.fpmi.kolyadkodarya.model.User;
+import by.bsu.fpmi.kolyadkodarya.services.StatusService;
 import by.bsu.fpmi.kolyadkodarya.services.UserService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +28,6 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Даша on 26.11.2015.
  */
 @Controller
-@RequestMapping(value = "login")
 public class LoginController
 {
     @Autowired
@@ -34,6 +36,9 @@ public class LoginController
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private StatusService statusService;
 
     @RequestMapping(value = "/tryLogin", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
@@ -44,27 +49,27 @@ public class LoginController
 
         if (error != null)
         {
-            model.addObject("error", "Invalid username and password!");
+            model.addObject("error", "Неверный логин и/или пароль!");
         }
 
         if (logout != null)
         {
-            model.addObject("msg", "You've been logged out successfully.");
+            model.addObject("msg", "Вы успешно вышли из системы.");
         }
-
         return model;
     }
 
     @RequestMapping(value = "/trySignUp", method = RequestMethod.GET)
     public ModelAndView registerUser(@ModelAttribute("user") User accountDto, BindingResult result,  Errors errors, HttpServletRequest request){
         User registered = new User();
+        accountDto.setStatus(statusService.getDefaultStatus());
         registered.setStatus(accountDto.getStatus());
 
         if (!result.hasErrors()) {
             registered = createUserAccount(accountDto, result);
         }
         if (registered == null) {
-            result.rejectValue("username", "message.regError", "Wrong username or password!");
+            result.rejectValue("username", "message.regError", "Неверный логин и/или пароль!!");
         }
         if (result.hasErrors()) {
             return new ModelAndView("../WEB-INF/pages/signUp", "user", accountDto);
@@ -95,13 +100,15 @@ public class LoginController
     public ModelAndView getIndex(@RequestParam(value = "error", required = false) String error,
                                  @RequestParam(value = "logout", required = false) String logout,
                                  HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("../index");
+        ModelAndView model = null;
         if (error != null) {
-            model.addObject("error", "Invalid username or password!");
+            model = new ModelAndView("../WEB-INF/pages/login");
+            model.addObject("error", "Неверный логин и/или пароль!");
         }
 
         if (logout != null) {
-            model.addObject("msg", "You've been logged out successfully.");
+            model = new ModelAndView("../index");
+            model.addObject("msg", "Вы успешно вышли из системы.");
         }
         return model;
     }

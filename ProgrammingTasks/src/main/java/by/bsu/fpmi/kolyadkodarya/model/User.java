@@ -31,7 +31,7 @@ public class User implements Serializable{
     private String lastname;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "STATUS_ID", nullable = false)
+    @JoinColumn(name = "STATUS_ID", nullable = true)
     private Status status;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userCreator")

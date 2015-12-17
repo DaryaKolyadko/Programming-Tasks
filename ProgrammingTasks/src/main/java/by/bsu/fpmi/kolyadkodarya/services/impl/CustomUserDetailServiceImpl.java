@@ -32,7 +32,7 @@ public class CustomUserDetailServiceImpl implements UserDetailsService{
 
         // �������� �� ���������� ������������
 
-        Set<GrantedAuthority> authorities =buildUserAuthorities(user.getUserRolesSet());
+        Set<GrantedAuthority> authorities = buildUserAuthorities(user.getUserRolesSet());
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 

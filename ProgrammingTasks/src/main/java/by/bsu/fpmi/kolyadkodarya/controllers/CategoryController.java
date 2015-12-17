@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -29,11 +31,11 @@ public class CategoryController
     private CategoryService categoryService;
 
 
-    @RequestMapping("/add_task")
-    public ModelAndView userList(Map<String, Object> map, Principal principal, Category category)
+    @RequestMapping(value = "/addTask", method = RequestMethod.GET)
+    public ModelAndView userList(Model model, Principal principal, Category category)
     {
-        map.put("categoryList", categoryService.listCategories());
-        return new ModelAndView("../WEB-INF/pages/add_task");
+        model.addAttribute("categoryList", categoryService.listCategories());
+        return new ModelAndView("../WEB-INF/pages/createTask");
     }
 
 }

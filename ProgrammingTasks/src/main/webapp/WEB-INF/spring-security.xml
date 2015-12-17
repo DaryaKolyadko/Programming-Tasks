@@ -19,12 +19,12 @@
                 authentication-failure-url="/programmingtasks?error"
                 password-parameter="password"
                 username-parameter="username"
-                authentication-success-handler-ref="authenticationSuccessHandler" />
+                authentication-success-handler-ref="authenticationSuccessHandler"/>
 
         <logout logout-success-url="/programmingtasks?logout" delete-cookies="JSESSIONID"/>
 
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
-        <intercept-url pattern="/start/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/mainPage/**" access="isAuthenticated()"/>
 
         <session-management>
             <concurrency-control max-sessions="100" session-registry-alias="sessionRegistry"/>
@@ -33,7 +33,7 @@
 
     <authentication-manager alias="authenticationManager">
     <authentication-provider user-service-ref="userDetailsService">
-        <password-encoder hash="sha-256">
+        <password-encoder hash="sha-256" ref="passwordEncoder">
             <salt-source user-property="username"/>
         </password-encoder>
     </authentication-provider>

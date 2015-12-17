@@ -1,5 +1,6 @@
 package by.bsu.fpmi.kolyadkodarya.services.impl;
 
+import by.bsu.fpmi.kolyadkodarya.dao.StatusDao;
 import by.bsu.fpmi.kolyadkodarya.dao.UserDao;
 import by.bsu.fpmi.kolyadkodarya.model.User;
 import by.bsu.fpmi.kolyadkodarya.model.UserRole;
@@ -44,7 +45,7 @@ public class UserServiceImpl implements UserService {
             throw new NullPointerException("Account with that username: " + accountDto.getUsername() + " already exists!");
         }
         final User user = new User();
-        user.setStatus(accountDto.getStatus());
+        user.setStatus(accountDto.getStatus());//statusDao.getDefaultStatus());
         user.setUsername(accountDto.getUsername());
         user.setPassword(new CustomPasswordEncoder("sha-256").encodePassword(accountDto.getPassword(), accountDto.getUsername()));
         user.setEnabled(true);

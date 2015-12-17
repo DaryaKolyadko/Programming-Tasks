@@ -80,8 +80,5 @@
                 <img src="../../../resources/img/creative-brain_converted.png">
             </div>
         </ul>
-        <%--<div>--%>
-        <%--<h1>Русский | Английский</h1>--%>
-        <%--</div>--%>
     </nav>
 </header>

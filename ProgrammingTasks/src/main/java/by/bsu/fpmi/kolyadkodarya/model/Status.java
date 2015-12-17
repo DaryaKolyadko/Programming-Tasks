@@ -13,7 +13,7 @@ public class Status
 {
     @Id
     @Column(name = "STATUS_ID", nullable = false)
-    private String id;
+    private int statusId;
 
     @Column(name = "STATUS", nullable = false)
     private String status;
@@ -21,14 +21,14 @@ public class Status
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "status")
     private Set<User> users = new HashSet<User>();
 
-    public String getId()
+    public int getStatusId()
     {
-        return id;
+        return statusId;
     }
 
-    public void setId(String id)
+    public void setStatusId(int id)
     {
-        this.id = id;
+        this.statusId = id;
     }
 
     public String getStatus()
