@@ -23,8 +23,11 @@
 
         <logout logout-success-url="/programmingtasks?logout" delete-cookies="JSESSIONID"/>
 
-        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/userInfo/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/createTask/**" access="isAuthenticated()"/>
         <intercept-url pattern="/mainPage/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/login/**" access="isAnonymous()"/>
+        <intercept-url pattern="/signUp/**" access="isAnonymous()"/>
 
         <session-management>
             <concurrency-control max-sessions="100" session-registry-alias="sessionRegistry"/>

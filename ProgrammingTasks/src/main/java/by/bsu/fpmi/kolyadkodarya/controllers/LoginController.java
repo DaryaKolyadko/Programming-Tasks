@@ -87,7 +87,7 @@ public class LoginController
             request.getSession().setAttribute("user", registered);
             request.getSession().setAttribute("username", registered.getUsername());
             request.getSession().setAttribute("authorities", authentication.getAuthorities());
-            return new ModelAndView("../WEB-INF/pages/login");
+            return new ModelAndView("../WEB-INF/pages/mainPage");
         }
     }
 

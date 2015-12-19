@@ -2,7 +2,6 @@ package by.bsu.fpmi.kolyadkodarya.controllers;
 
 import by.bsu.fpmi.kolyadkodarya.model.Category;
 import by.bsu.fpmi.kolyadkodarya.services.CategoryService;
-import by.bsu.fpmi.kolyadkodarya.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.session.SessionRegistry;
@@ -20,22 +19,19 @@ import java.util.Map;
  */
 
 @Controller
-public class CategoryController
+public class CreateTaskController
 {
     @Autowired
     @Qualifier("sessionRegistry")
     private SessionRegistry sessionRegistry;
 
-    //@Autowired
-    // @Qualifier("categoryService")
+    @Autowired
     private CategoryService categoryService;
 
-
-    @RequestMapping(value = "/addTask", method = RequestMethod.GET)
-    public ModelAndView userList(Model model, Principal principal, Category category)
+    @RequestMapping(value = "/createTask", method = RequestMethod.GET)
+    public ModelAndView createTask(Model model, Principal principal, Category category)
     {
         model.addAttribute("categoryList", categoryService.listCategories());
         return new ModelAndView("../WEB-INF/pages/createTask");
     }
-
 }

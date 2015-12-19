@@ -25,7 +25,7 @@ public class CategoryDaoImpl implements CategoryDao
     private SessionFactory sessionFactory;
 
     @Override
-    public Category getById(Long id)
+    public Category getById(int id)
     {
         List<Category> categories = new ArrayList<Category>();
         categories = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE categoryId=?").setParameter(0, id).list();
@@ -56,7 +56,7 @@ public class CategoryDaoImpl implements CategoryDao
     public List<Category> listCategories()
     {
         Criteria c = sessionFactory.getCurrentSession().createCriteria(Category.class);
-        c.addOrder(Order.asc("category_id"));
+        c.addOrder(Order.asc("CATEGORY_ID"));
         return c.list();
     }
 }

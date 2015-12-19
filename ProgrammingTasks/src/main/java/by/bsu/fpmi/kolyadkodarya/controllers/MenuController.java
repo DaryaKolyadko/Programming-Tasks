@@ -16,11 +16,6 @@ public class MenuController
         return new ModelAndView("../WEB-INF/pages/contactUs");
     }
 
-    @RequestMapping(value = "/createTask", method = RequestMethod.GET)
-    public ModelAndView createTask(){
-        return new ModelAndView("../WEB-INF/pages/createTask");
-    }
-
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
     public ModelAndView goToForum(){
         return new ModelAndView("../WEB-INF/pages/forum");

@@ -22,14 +22,14 @@
             <%--<sec:authorize access="hasAuthority">--%>
             <sec:authorize access="isAuthenticated()">
             <li>
-                <a href="/userInfo">
+                <a href="<c:url value="/userInfo"/>">
                     <div>
                         О себе
                         <span>=)</span>
                     </div>
                 </a><div>
                 <ul>
-                    <li><a href="/userInfo">Обо мне</a></li>
+                    <li><a href="<c:url value="/userInfo"/>">Обо мне</a></li>
                     <li><a href="#">Мои задачи</a></li>
                 </ul>
             </div>
@@ -63,15 +63,15 @@
             </sec:authorize>
             <sec:authorize access="isAnonymous()">
             <li>
-                <a href="/login">
+                <a href="<c:url value="/login"/>">
                     <div>
                         Вход
                         <span>или Регистрация</span>
                     </div>
                 </a><div>
                 <ul>
-                    <li><a href="/login">Вход</a></li>
-                    <li><a href="/sign_up">Регистрация</a></li>
+                    <li><a href="<c:url value="/login"/>">Вход</a></li>
+                    <li><a href="<c:url value="/sign_up"/>">Регистрация</a></li>
                 </ul>
             </div>
             </li>
