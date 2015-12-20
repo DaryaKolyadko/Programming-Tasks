@@ -42,9 +42,6 @@
             </label>
             <div class="col-md-10">
                 <select class = "form-control" style="width: 10%">
-                    <%--<option>Будут</option>--%>
-                    <%--<option>данные</option>--%>
-                    <%--<option>из БД</option>--%>
                     <c:forEach items="${categoryList}" var="category">
                         <option value="${category.categoryName}">${category.categoryName}</option>
                     </c:forEach>
@@ -61,9 +58,9 @@
             </label>
             <div class="col-md-10">
                 <select class = "form-control" style="width: 10%">
-                    <option>Будут</option>
-                    <option>данные</option>
-                    <option>из БД</option>
+                    <c:forEach items="${complexityLevelList}" var="complexityLevel">
+                        <option value="${complexityLevel.complexityLevelName}">${complexityLevel.complexityLevelName}</option>
+                    </c:forEach>
                 </select>
             </div>
         </div>

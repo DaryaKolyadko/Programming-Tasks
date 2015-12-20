@@ -2,18 +2,13 @@ package by.bsu.fpmi.kolyadkodarya.dao.impl;
 
 import by.bsu.fpmi.kolyadkodarya.dao.CategoryDao;
 import by.bsu.fpmi.kolyadkodarya.model.Category;
-import by.bsu.fpmi.kolyadkodarya.model.User;
-import by.bsu.fpmi.kolyadkodarya.model.UserRole;
-import by.bsu.fpmi.kolyadkodarya.utils.CustomPasswordEncoder;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Даша on 07.12.2015.
@@ -27,7 +22,7 @@ public class CategoryDaoImpl implements CategoryDao
     @Override
     public Category getById(int id)
     {
-        List<Category> categories = new ArrayList<Category>();
+        List<Category> categories;
         categories = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE categoryId=?").setParameter(0, id).list();
 
         if (categories.size() > 0)
@@ -56,7 +51,7 @@ public class CategoryDaoImpl implements CategoryDao
     public List<Category> listCategories()
     {
         Criteria c = sessionFactory.getCurrentSession().createCriteria(Category.class);
-        c.addOrder(Order.asc("CATEGORY_ID"));
+        c.addOrder(Order.asc("categoryId"));
         return c.list();
     }
 }

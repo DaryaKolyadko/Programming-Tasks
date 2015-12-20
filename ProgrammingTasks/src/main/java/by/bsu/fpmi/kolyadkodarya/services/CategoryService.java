@@ -10,10 +10,7 @@ import java.util.List;
 public interface CategoryService
 {
     Category getById(int id);
-
     void update(Category category);
-
     Category save(Category category);
-
     List<Category> listCategories();
 }
