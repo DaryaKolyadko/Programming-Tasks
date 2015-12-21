@@ -13,6 +13,7 @@ public class Comment
 {
     @Id
     @Column(name = "COMMENT_ID", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long commentId;
 
     @Column(name = "COMMENT", nullable = false)

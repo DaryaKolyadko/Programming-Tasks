@@ -35,6 +35,18 @@ public class CategoryDaoImpl implements CategoryDao
     }
 
     @Override
+    public Category getByName(String categoryName)
+    {
+            List<Category> categories;
+            categories = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE categoryName=?").setParameter(0, categoryName).list();
+            if (categories.size() == 1) {
+                return categories.get(0);
+            } else {
+                return null;
+            }
+    }
+
+    @Override
     public void update(Category category)
     {
         sessionFactory.getCurrentSession().update(category);

@@ -30,14 +30,14 @@ public class User implements Serializable{
     @Column(name = "LASTNAME", nullable = false)
     private String lastname;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "STATUS_ID", nullable = true)
     private Status status;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userCreator")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "userCreator")
     private Set<Task> tasks = new HashSet<Task>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "SOLVE_USER_TASK", joinColumns = {
             @JoinColumn(name = "USER_ID", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "TASK_ID",
@@ -100,5 +100,25 @@ public class User implements Serializable{
     public void setStatus(Status status)
     {
         this.status = status;
+    }
+
+    public Set<Task> getTasks()
+    {
+        return tasks;
+    }
+
+    public void setTasks(Set<Task> tasks)
+    {
+        this.tasks = tasks;
+    }
+
+    public Set<Task> getSolvedTasks()
+    {
+        return solvedTasks;
+    }
+
+    public void setSolvedTasks(Set<Task> solvedTasks)
+    {
+        this.solvedTasks = solvedTasks;
     }
 }

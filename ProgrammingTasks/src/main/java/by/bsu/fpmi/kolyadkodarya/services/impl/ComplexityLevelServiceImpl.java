@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Даша on 20.12.2015.
  */
-@Service("categoryService")
+@Service("complexityLevelService")
 @Transactional
 public class ComplexityLevelServiceImpl implements ComplexityLevelService
 {
@@ -41,5 +41,12 @@ public class ComplexityLevelServiceImpl implements ComplexityLevelService
     public List<ComplexityLevel> listComplexityLevels()
     {
         return complexityLevelDao.listComplexityLevels();
+    }
+
+    @Override
+    public ComplexityLevel getByName(String name)
+    {
+        final ComplexityLevel complexityLevel = complexityLevelDao.getByName(name);
+        return complexityLevel;
     }
 }

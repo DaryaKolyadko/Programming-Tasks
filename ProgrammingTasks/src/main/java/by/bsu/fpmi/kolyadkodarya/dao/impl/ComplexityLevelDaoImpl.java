@@ -36,6 +36,18 @@ public class ComplexityLevelDaoImpl implements ComplexityLevelDao
     }
 
     @Override
+    public ComplexityLevel getByName(String complexityLevelName)
+    {
+        List<ComplexityLevel> complexityLevels;
+        complexityLevels = sessionFactory.getCurrentSession().createQuery("FROM ComplexityLevel WHERE complexityLevelName=?").setParameter(0, complexityLevelName).list();
+        if (complexityLevels.size() == 1) {
+            return complexityLevels.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public void update(ComplexityLevel complexityLevel)
     {
         sessionFactory.getCurrentSession().update(complexityLevel);

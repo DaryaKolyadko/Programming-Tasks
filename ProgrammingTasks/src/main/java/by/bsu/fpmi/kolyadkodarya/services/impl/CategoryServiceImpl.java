@@ -27,6 +27,12 @@ public class CategoryServiceImpl implements CategoryService
     }
 
     @Override
+    public Category getByName(String name)
+    {
+        return categoryDao.getByName(name);
+    }
+
+    @Override
     public void update(Category category)
     {
         categoryDao.update(category);

@@ -10,6 +10,7 @@ import java.util.List;
 public interface CategoryDao
 {
     Category getById(int id);
+    Category getByName(String categoryName);
     void update(Category category);
     Category save(Category category);
     List<Category> listCategories();

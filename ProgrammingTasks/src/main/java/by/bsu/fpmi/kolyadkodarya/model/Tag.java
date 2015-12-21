@@ -13,6 +13,7 @@ public class Tag
 {
     @Id
     @Column(name = "TAG_ID", nullable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long tagId;
 
     @Column(name = "TAG", nullable = false)

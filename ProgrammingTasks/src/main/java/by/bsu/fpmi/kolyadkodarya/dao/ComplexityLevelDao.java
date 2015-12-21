@@ -11,6 +11,8 @@ public interface ComplexityLevelDao
 {
     ComplexityLevel getById(int id);
 
+    ComplexityLevel getByName(String name);
+
     void update(ComplexityLevel complexityLevel);
 
     ComplexityLevel save(ComplexityLevel complexityLevel);

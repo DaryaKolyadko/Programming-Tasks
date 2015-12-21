@@ -11,6 +11,7 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/menu_old.css" media="screen" type="text/css"/>
     <title>User Info</title>
 </head>
@@ -23,7 +24,12 @@
             <c:import url="/WEB-INF/pages/include/leftMenu.jsp"/>
         </td>
         <td width="*">
-            <h2>UserInfo: <sec:authentication property="name"/></h2>
+            <%--<h2>Имя: <sec:authentication property="name"/></h2>--%>
+                <h3>Логин: ${user.username}</h3>
+                <h3>Имя: ${user.firstname}</h3>
+                <h3>Фамилия: ${user.lastname}</h3>
+                <h3>Статус: ${user.status.status}</h3>
+                <a class="btn btn-info" style="margin-top: 15px" href="<c:url value="/editUserProfile/${user.username}"/>">Изменить параметры</a>
         </td>
     </tr>
 </table>

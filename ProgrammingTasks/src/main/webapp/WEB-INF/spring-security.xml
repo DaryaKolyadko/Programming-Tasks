@@ -25,6 +25,8 @@
 
         <intercept-url pattern="/userInfo/**" access="isAuthenticated()"/>
         <intercept-url pattern="/createTask/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/myTasks/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/userEditProfile/**" access="isAuthenticated()"/>
         <intercept-url pattern="/mainPage/**" access="isAuthenticated()"/>
         <intercept-url pattern="/login/**" access="isAnonymous()"/>
         <intercept-url pattern="/signUp/**" access="isAnonymous()"/>

@@ -10,6 +10,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
+    <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/menu_old.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="../../resources/css/login.css" media="screen" type="text/css" />
     <title>Login</title>
@@ -24,7 +25,8 @@
         </td>
         <td width="*">
             <c:if test="${not empty error}">
-                <div class="error" style="color: red">${error}</div>
+                  <p class="bg-danger" style="color: red">${error}</p>
+                <%--<div class="error">${error}</div>--%>
             </c:if>
             <div id="login-form">
                 <h1>Авторизация на сайте</h1>

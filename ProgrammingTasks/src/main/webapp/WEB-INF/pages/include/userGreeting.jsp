@@ -10,6 +10,6 @@
 <link rel="stylesheet" href="../../../resources/css/leftMenu.css" media="screen" type="text/css" />
 <sec:authorize access="isAuthenticated()">
     <%--<c:if test="${username != null }">--%>
-        <div id="user-greeting"><h1>Hello,  <b><sec:authentication property="name" /></b>!</h1></div>
+        <div id="user-greeting"><h1>Привет, <b><sec:authentication property="name"/></b>!</h1></div>
     <%--</c:if>--%>
 </sec:authorize>

@@ -12,84 +12,10 @@
 <head>
     <link rel="stylesheet" href="../../resources/css/menu_old.css" media="screen" type="text/css"/>
     <link rel="stylesheet" href="../../resources/css/signUp.css" media="screen" type="text/css" />
-    <title>Register</title>
+    <title>Sign Up</title>
 </head>
 <body>
 <c:import url="/WEB-INF/pages/include/menu.jsp"/>
-<%--<header>--%>
-<%--<nav role="navigation">--%>
-<%--<ul>--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="<c:url value="/home"/>">--%>
-<%--<div>--%>
-<%--Домой--%>
-<%--<span>Назад на главную страницу</span>--%>
-<%--</div>--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--&lt;%&ndash;<sec:authorize access="hasAuthority">&ndash;%&gt;--%>
-<%--<sec:authorize access="isAuthenticated()">--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="userInfo">--%>
-<%--<div>--%>
-<%--О себе--%>
-<%--<span>=)</span>--%>
-<%--</div>--%>
-<%--</a><div>--%>
-<%--<ul>--%>
-<%--<li><a href="userInfo">Обо мне</a></li>--%>
-<%--<li><a href="#">Мои задачи</a></li>--%>
-<%--</ul>--%>
-<%--</div>--%>
-<%--</li>--%>
-            <%--</sec:authorize>--%>
-<%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="<c:url value="/contactUs"/>">--%>
-<%--<div>--%>
-<%--Контакты--%>
-<%--<span>Инфа о разработчиках</span>--%>
-<%--</div>--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<sec:authorize access="isAuthenticated()">--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="<c:url value="/createTask"/>">--%>
-<%--<div>--%>
-<%--Добавить задачу--%>
-<%--<span>Создать новую задачу</span>--%>
-<%--</div>--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="<c:url value="/j_spring_security_logout"/>">--%>
-<%--<div>--%>
-<%--Выход--%>
-<%--</div>--%>
-<%--</a>--%>
-<%--</li>--%>
-<%--</sec:authorize>--%>
-<%--<sec:authorize access="isAnonymous()">--%>
-<%--<li class="header_nav_ul_li">--%>
-<%--<a href="login">--%>
-<%--<div>--%>
-<%--Вход--%>
-<%--<span>или Регистрация</span>--%>
-<%--</div>--%>
-<%--</a><div>--%>
-<%--<ul>--%>
-<%--<li><a href="login">Вход</a></li>--%>
-<%--<li><a href="sign_up">Регистрация</a></li>--%>
-<%--</ul>--%>
-<%--</div>--%>
-<%--</li>--%>
-<%--</sec:authorize>--%>
-<%--<div style="width: 200px; padding: 10px; margin-left: auto;" title="Готовы пошевелить извилинами? =)">--%>
-<%--<img src="../../resources/img/creative-brain_converted.png">--%>
-<%--</div>--%>
-<%--</ul>--%>
-<%--</nav>--%>
-<%--</header>--%>
 <table id="tb" width="100%" style="margin-bottom: 3%">
     <td width="10%">
         <c:import url="/WEB-INF/pages/include/userGreeting.jsp"/>
@@ -101,11 +27,21 @@
 
             <fieldset>
                 <form action="<c:url value="/trySignUp"/>" method="get">
-                    <input type="text" required value="Логин" name="username" onBlur="if(this.value=='')this.value='Логин'" onFocus="if(this.value=='Логин')this.value='' ">
-                    Пароль <input type="password" required value="Пароль" name="password" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
-                    Подтвердите пароль <input type="password" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
-                    <input type="text" required value="Имя" name="firstname" onBlur="if(this.value=='')this.value='Имя'" onFocus="if(this.value=='Имя')this.value='' ">
-                    <input type="text" required value="Фамилия" name="lastname" onBlur="if(this.value=='')this.value='Фамилия'" onFocus="if(this.value=='Фамилия')this.value='' ">
+                    <input type="text" pattern="[a-zA-Z0-9_.-]{4,8}" required value="Логин"
+                           name="username" onBlur="if(this.value=='')this.value='Логин'"
+                           onFocus="if(this.value=='Логин')this.value='' "
+                           title="Должен содержать не менее 4 и не более 8 символов на выбор: латиницы, цифр,символов ., -, -">
+                    Пароль <input type="password" pattern="[a-zA-Z0-9_.-]{8,}" required value="Пароль"
+                                  name="password" onBlur="if(this.value=='')this.value='Пароль'"
+                                  onFocus="if(this.value=='Пароль')this.value='' " title="Должен содержать не менее 8 символов на выбор: латиницы, цифр, символов ., -, -">
+                    Подтвердите пароль <input type="password" required value="Пароль"
+                                              onBlur="if(this.value=='')this.value='Пароль'"
+                                              onFocus="if(this.value=='Пароль')this.value='' ">
+                    <input type="text" required value="Имя" name="firstname"
+                           onBlur="if(this.value=='')this.value='Имя'" onFocus="if(this.value=='Имя')this.value='' ">
+                    <input type="text" required value="Фамилия" name="lastname"
+                           onBlur="if(this.value=='')this.value='Фамилия'"
+                           onFocus="if(this.value=='Фамилия')this.value='' ">
                     <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
                 </form>
             </fieldset>

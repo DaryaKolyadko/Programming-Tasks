@@ -12,7 +12,7 @@ body {
 
 a {
 	color: #1dabb8;
-	font-style: bold;
+    font-style: oblique;
 	text-decoration: none;
 }
 
@@ -24,9 +24,9 @@ a:hover { color: yellowgreen; }
 	margin-left: 20px;
 }
 
-#tag: hover
+#tag:hover
 {
-	color: red;
+	color: yellowgreen;
 }
 
 #h1_

@@ -16,4 +16,6 @@ public interface ComplexityLevelService
     ComplexityLevel save(ComplexityLevel complexityLevel);
 
     List<ComplexityLevel> listComplexityLevels();
+
+    ComplexityLevel getByName(String name);
 }

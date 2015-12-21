@@ -30,7 +30,7 @@
                 </a><div>
                 <ul>
                     <li><a href="<c:url value="/userInfo"/>">Обо мне</a></li>
-                    <li><a href="#">Мои задачи</a></li>
+                    <li><a href="<c:url value="/myTasks"/>">Мои задачи</a></li>
                 </ul>
             </div>
             </li>

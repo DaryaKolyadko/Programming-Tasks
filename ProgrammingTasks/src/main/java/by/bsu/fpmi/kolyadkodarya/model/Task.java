@@ -14,7 +14,8 @@ public class Task
 {
     @Id
     @Column(name = "TASK_ID", nullable = false)
-    private Long taskId;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int taskId;
 
     @Column(name = "NAME", nullable = false)
     private String taskName;
@@ -25,41 +26,41 @@ public class Task
     @Column(name = "SOLUTION", nullable = false)
     private String solution;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "task")
     private Set<Comment> comments = new HashSet<Comment>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_CREATOR", nullable = false)
     private User userCreator;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CATEGORY_ID", nullable = false)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "COMP_LEVEL_ID", nullable = false)
     private ComplexityLevel complexityLevel;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "TAG_TASK", joinColumns = {
             @JoinColumn(name = "TASK_ID", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "TAG_ID",
                     nullable = false)})
     private Set<Tag> tags = new HashSet<Tag>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "SOLVE_USER_TASK", joinColumns = {
             @JoinColumn(name = "TASK_ID", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "USER_ID",
                     nullable = false)})
     private Set<User> usersSolved = new HashSet<User>();
 
-    public Long getTaskId()
+    public int getTaskId()
     {
         return taskId;
     }
 
-    public void setTaskId(Long taskId)
+    public void setTaskId(int taskId)
     {
         this.taskId = taskId;
     }
